@@ -1,11 +1,11 @@
 name: Push and Deploy
-​
+
 # When workflow is triggered
 on:
   push:
     branches:
       - main
-​
+
 # Jobs to carry out
 jobs:
   deploy:
@@ -33,3 +33,4 @@ jobs:
         with:
           args: deploy --dir=build --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+          
