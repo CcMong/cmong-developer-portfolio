@@ -6,5 +6,5 @@ Want to create a Fullstack portfolio site using React and Sanity
 - Create a folder in the root directory for the backend part. Install sanity on this directory
 - After the installation, look inside the backend folder for the schema folder, and then index.js. Create another file, eg. testimonials.js. Then create the schemas and export/import them according to the info in the docs: https://www.sanity.io/docs/create-a-schema-and-configure-sanity-studio
 - Do npm run dev (if I choose manual installation of dependencies, then this will be sanity start), and the schema title should appear on the left side of the screen
-- 
+- Continue to add new schemas, which will continue to populate them on the LHS of the UI in Sanity
 */
