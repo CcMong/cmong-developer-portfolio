@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 1.5rem;
     //background: rgba(255,255,255, 0.25);
     backdrop-filter: blur(4px); // This might not be available on all browsers. So:
     //-webkit-backdrop-filter: blur(4px);
@@ -36,7 +36,7 @@
 .app__navbar-links {
     flex: 1; // This will make the links take up all available space that the logo doesn't take up
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 
     list-style: none;
@@ -46,6 +46,7 @@
         cursor: pointer;
         flex-direction: column; // Stack the links and the empty div on top of each other
 
+        // The div that will be used for the hover indicator effect
         div {
             width: 10px;
             height: 5px;
@@ -74,12 +75,124 @@
     }
 
     li:hover {
-
+        // the div that is used for the hover indicator
         div {
             background-color: var(--secondary-color);
         }
         
     }
 
+    // Up to 760px screen widths, we want to hide the main menu
+    @media screen and (max-width: 760px) {
+        display: none;        
+    }
+}
 
+// Slide-out menu for smaller screens
+.app__navbar-menu {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary-color);
+
+    //Hamburger icon
+    svg {
+        width: 70%;
+        height: 70%;
+        color: var(--white-color);
+    }
+
+    // motion div
+    div {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 5;
+
+        padding: 1rem;
+
+        width: 70%;
+        height: 100vh;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+
+        background: url("../../assets/images/bgWhiteDesign.jpg");
+        background-color: var(--white-color);
+        background-size: cover;
+        background-repeat: repeat;
+
+        box-shadow: 0, 0, 20px rgba(168, 168, 168, 0.15);
+
+        // The "x" icon within the slide-out menu
+        svg {
+            width: 35px;
+            height: 35px;
+            color: var(--secondary-color);
+            margin: 0.5rem 1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        li {
+            margin: 1rem;
+            display: flex;
+            flex-direction: column;
+
+            div {
+                width: 10px;
+                height: 5px;
+                background: transparent;
+                border-radius: 50%;
+    
+                //margin-bottom: 5px;
+    
+            }
+
+            a {
+                color: var(--gray-color);
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 600;
+
+                transition: all 300ms ease-in-out;
+            }
+
+            a:hover {
+                color: var(--secondary-color)
+            }
+        }
+        
+        // Don't want this to show on screens bigger than 760px
+        @media screen and (min-width: 760px) {
+            display: none;
+            
+        }    
+    }
+
+    // Don't want this entire menu available for screens bigger than 760px
+    @media screen and (min-width: 760px) {
+        display: none;
+        
+    }
 }
