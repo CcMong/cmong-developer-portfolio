@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import "./Navbar.scss";
-import logo from "../../assets/images/cmong-dev-logo.jpg";
+import logo from "../../assets/images/cmong-dev-logo2.jpg";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { easeOut, motion } from "framer-motion";
 
